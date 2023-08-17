@@ -110,9 +110,9 @@ def process(image_tuple, watermark_tuple, save_dir, overlay_iter):
             # if np.random.randint(0,10) % 2 == 0:
             #     output = overlay(image, watermark, (0.05, 0.18), gray=True)
             # else:
-            output, watermark_mask = overlay(image, random_croped_watermark, alpha_range=(0.08, 0.2), alpha_crop_iter=2, gray=False)
-            save_img(output, os.path.join(save_dir, "image2"), idx, watermark_fn, iterate)
-            save_img(watermark_mask, os.path.join(save_dir, "mask2"), idx, watermark_fn, iterate)
+            output, watermark_mask = overlay(image, random_croped_watermark, alpha_range=(0.2, 0.4), alpha_crop_iter=2, gray=True)
+            save_img(output, os.path.join(save_dir, "image"), idx, watermark_fn, iterate)
+            save_img(watermark_mask, os.path.join(save_dir, "mask"), idx, watermark_fn, iterate)
                 
 def main(watermark_dir, image_dir, save_dir, overlay_iter=1):
     
@@ -128,6 +128,6 @@ def main(watermark_dir, image_dir, save_dir, overlay_iter=1):
     #     pool.starmap(process, mapping)
 
 if __name__ == '__main__':
-    main("./watermark", "/media/mlfavorfit/sda/watermark_removal_dataset_temp/val/target", "/media/mlfavorfit/sda/watermark_removal_dataset_temp/val", overlay_iter=3)
-    main("./watermark", "/media/mlfavorfit/sda/watermark_removal_dataset_temp/train/target", "/media/mlfavorfit/sda/watermark_removal_dataset_temp/train", overlay_iter=3)
+    main("./watermark", "/media/mlfavorfit/sda/watermark_removal_dataset/with_watermark_gray/val/target", "/media/mlfavorfit/sda/watermark_removal_dataset/with_watermark_gray/val", overlay_iter=5)
+    main("./watermark", "/media/mlfavorfit/sda/watermark_removal_dataset/with_watermark_gray/train/target", "/media/mlfavorfit/sda/watermark_removal_dataset/with_watermark_gray/train", overlay_iter=5)
 
